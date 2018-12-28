@@ -1,5 +1,10 @@
 #!/bin/bash
 
-. $(dirname $0)/global-variables.sh
-. $(dirname $0)/bootstrap.sh
+### Global vars
+projectPath=""
+rootPathScript=$(dirname $0)
+
+### Imports
+. $rootPathScript/bootstrap.sh
+
 exit 0
