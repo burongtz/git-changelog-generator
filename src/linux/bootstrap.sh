@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Get project path
+### Get project path
 if [ $# -eq 0 ]; then
     projectPath=$(pwd)
 else
     projectPath=$1
 fi
 
-# Validate path of directory
+### Validate path of directory
 if [ ! -d $projectPath ]; then
     echo "$projectPath doesn't exists or is not a directory."
     exit 1
