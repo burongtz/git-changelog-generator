@@ -15,3 +15,4 @@ The chnage log is going to be generated using \
 - **Security** in case of vulnerabilities.
 
 # How to use
+`javier@javier:~/burongtz-github/git-changelog-generator$ sh src/linux/main.sh`
