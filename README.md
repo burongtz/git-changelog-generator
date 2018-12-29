@@ -15,7 +15,7 @@ The chnage log is going to be generated using \
 - **Security** in case of vulnerabilities.
 
 # How to use
-The script only works if in subject of commit message you write one token, of the list in Types of changes, at beginning of string.
+The script only works if in subject of commit message you write one token, of the list in [Types of changes](https://github.com/burongtz/git-changelog-generator/blob/dev/README.md#types-of-changes), at beginning of string.
 Example: \
 `$ git commit -m "Added: module to edit profile"`
 
