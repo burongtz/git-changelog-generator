@@ -1,9 +1,7 @@
 #!/bin/bash
 
-### Global vars
 rootPathScript=$(dirname $0)
 
-### Imports
 . $rootPathScript/bootstrap.sh
 . $rootPathScript/git.sh
 . $rootPathScript/changelog.sh
