@@ -9,26 +9,36 @@ get_tokens() {
         "Fixed:"
         "Security:"
     )
+    # local tokens=("Add" "Validate") #For testing
     echo "${tokens[*]}"
 }
 
 filter_by_tokens() {
     local expGrep=""
-    local expSeparator=""
 
     if [ $# -eq 0 ]; then
         echo "Nothing to filter on filter_by_tokens!"
         return 1 #failure
     fi
 
-    for token in $(get_tokens); do
-        expGrep+=$expSeparator
-        expGrep+=$token
-        expSeparator="\|"
-    done
+    expGrep=$(get_tokens_as_exp)
 
     echo "$1" | grep "$expGrep"
     return 0 #success
+}
+
+get_tokens_as_exp() {
+    local expGrep=""
+    local expSeparator=""
+
+    for token in $(get_tokens); do
+        expGrep+=$expSeparator
+        expGrep+=$token
+        expGrep+=".*"
+        expSeparator="\|"
+    done
+
+    echo "$expGrep"
 }
 
 save_changelog() {
