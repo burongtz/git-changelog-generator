@@ -28,6 +28,18 @@ filter_by_tokens() {
     done
 
     echo "$1" | grep "$expGrep"
-
     return 0 #success
+}
+
+save_changelog() {
+    local changelogName="CHANGELOG.md"
+
+    if [ $# -lt 2 ]; then
+        echo "Nothing to save as changelog, missing parametters!"
+        return 1
+    fi
+
+    echo "$2" >> "$1/$changelogName"
+
+    return 0
 }
