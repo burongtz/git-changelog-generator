@@ -1,4 +1,4 @@
-# Git Changelog Generator
+# Git CHANGELOG Generator
 A generator of CHANGELOG.md file using git commits.
 The chnage log is going to be generated using \
 `git log --no-merges --date='format-local:%Y-%m-%d %H:%M:%S' --pretty=format:'%cd | %h | %s' | grep -e 'Added:' -e 'Fixed:'`
