@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ### Global vars
-projectPath=""
 rootPathScript=$(dirname $0)
 
 ### Imports
@@ -9,8 +8,10 @@ rootPathScript=$(dirname $0)
 . $rootPathScript/git.sh
 . $rootPathScript/changelog.sh
 
-test=$(get_formated_git_log)
-# echo "$test"
-filter_by_tokens "$test"
+gitLogFormatted=$(get_formated_git_log)
+gitLogfiltered=$(filter_by_tokens "$gitLogFormatted")
+contentChangeLog=$(create_content_changelog "$gitLogfiltered")
+
+save_changelog $(pwd) "$contentChangeLog"
 
 exit 0
