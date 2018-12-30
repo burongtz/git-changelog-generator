@@ -53,3 +53,20 @@ save_changelog() {
 
     return 0
 }
+
+create_content_changelog() {
+    local content=""
+
+    if [ $# -eq 0 ]; then
+        echo "Missing parametters!"
+        return 1
+    fi
+
+    for token in $(get_tokens); do
+        content+="\n# $token\n"
+        content+=$(echo "$1" | grep -o "$token.*" | awk '{print "- "$0}')
+        content+="\n"
+    done
+
+    echo -e "$content"
+}
