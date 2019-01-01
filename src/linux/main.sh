@@ -21,7 +21,7 @@ validate_path_project() {
     local path=$1
 
     if [ ! -d $path ]; then
-        echo "$path doesn't exists or is not a directory."
+        echo "\"$path\" doesn't exists or is not a directory."
         exit 1
     fi
 }
