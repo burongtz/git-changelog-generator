@@ -51,6 +51,7 @@ gitPathProject=""
 gitLogFormatted=""
 gitLogfiltered=""
 contentChangeLog=""
+revisionRange=""
 
 if [ $# -eq 0 ]; then
     gitPathProject=$(pwd)
@@ -59,11 +60,12 @@ else
 fi
 
 validate_path_project $gitPathProject
+revisionRange=$2
 
-gitLogFormatted=$(get_formated_git_log)
+gitLogFormatted=$(get_formated_git_log $revisionRange)
 gitLogfiltered=$(filter_by_tokens "$gitLogFormatted")
-contentChangeLog=$(create_content_changelog "$gitLogfiltered")
 
+contentChangeLog=$(create_content_changelog "$gitLogfiltered")
 save_changelog $(pwd) "$contentChangeLog"
 
 exit 0
